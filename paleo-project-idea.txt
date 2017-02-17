@@ -1,0 +1,16 @@
+**Project Choice 1: Camelidae-- camelids
+eeb177-student@eeb177-VirtualBox:~/Desktop/eeb-177/eeb-177-final-project$ tail -n +19 camelidae_pbdb_data.csv | cut -d "," -f 6 |sort | uniq | wc -l
+number of species: 273
+
+
+**Project Choice 2: Mustelidae-- carnivorous mammals
+eeb177-student@eeb177-VirtualBox:~/Desktop/eeb-177/eeb-177-final-project$ tail -n +19 mustelidae_pbdb_data.csv | cut -d "," -f 6 |sort | uniq | wc -l
+number of species: 220
+
+
+**Project Choice  3: Felidae
+eeb177-student@eeb177-VirtualBox:~/Desktop/eeb-177/eeb-177-final-project$ tail -n +19 mustelidae_pbdb_data.csv | cut -d "," -f 6 |sort | uniq | wc -l
+number of species: 232
+
+
+For this project, I wanted to examine the occurrences of various species within a family and examine the duration of these species and possibly gain insight on how their surivival reflected the prosperity (or lack thereof) of the environment at this time. 
