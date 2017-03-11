@@ -1,0 +1,26 @@
+---
+title: "deadline6.Rmd"
+output: html_document
+---
+
+```{r}
+library(ggplot2)
+mustelidae <- read.csv("//home/eeb177-student/Desktop/eeb-177/eeb177finalproj/mustelidae_summary.csv", header =F, as.is = T)
+
+names(mustelidae) <- c("genus", "species", "minage", "maxage")
+head(mustelidae)
+```
+```{r}
+mustelidae_occ <- ggplot(mustelidae, aes( species, ymin = maxage, ymax=minage, colour = genus))
+mustelidae_occ <- mustelidae_occ + geom_linerange()
+mustelidae_occ <- mustelidae_occ + theme(legend.position="none") #gets rid of legend
+mustelidae_occ <- mustelidae_occ + coord_flip() #flips the coordinats horizontally
+mustelidae_occ <- mustelidae_occ +  theme(axis.text.y = element_text(size=3)) # resizes text
+mustelidae_occ <- mustelidae_occ + theme(axis.ticks.y=element_blank()) # gets rid of tick marks on y axis
+mustelidae_occ <- mustelidae_occ + scale_y_continuous(limits=c(0, 30), expand = c(0, 0), breaks=c(0, 5, 10, 15, 20, 25, 30)) # gets rid of space on right and left of the graph to make the graph itself larger
+mustelidae_occ <- mustelidae_occ + labs(title = "Canid Fossil Occurrences", x = "Species", y = "Ma ago") + theme(plot.title = element_text(hjust = 0.5, size=22, face = "bold"), axis.title =element_text(size=20))  # adds titles and labels to the graph
+mustelidae_occ
+```
+```{r}
+ggsave(filename = "mustelidae_fossil_occurrences.pdf", plot = mustelidae_occ)
+```
